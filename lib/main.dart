@@ -49,6 +49,13 @@ void add(){  // função que adiciona novo objeto a lista
   });
 }
 
+void remove(int index)
+{
+  setState(() { //removendo o indice marcado
+    widget.items.removeAt(index);
+  });
+}
+
 
   @override
   Widget build(BuildContext context) { //renderizo acabo n fica em um for... pra atualizar
@@ -89,10 +96,13 @@ void add(){  // função que adiciona novo objeto a lista
               });
             },
           ),
-          key: Key(item.title),
+          key: UniqueKey(), 
           background: Container(
             color: Colors.red.withOpacity(0.2)
           ),
+          onDismissed: (direction){
+            remove(index);
+          },
           
           );
         },
