@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 void add(){  // função que adiciona novo objeto a lista
   if(newTaskCtrl.text.isEmpty) return;
-  
+
   setState(() {
     widget.items.add(
       Item(
@@ -79,15 +79,18 @@ void add(){  // função que adiciona novo objeto a lista
         itemBuilder: (BuildContext ctxt, int index){
           final item = widget.items[index]; // minimizando o codigo
 
-          return CheckboxListTile(  // criando checkbox
+          return Dismissible(child: CheckboxListTile(  // criando checkbox
             title: Text(item.title),
-            key: Key(item.title),
+            
             value: item.done,
             onChanged: (value){
               setState(() {
                 item.done = value; // mudando o checkbox
               });
             },
+            
+          ), 
+            key: Key(item.title),
           );
         },
       ),
