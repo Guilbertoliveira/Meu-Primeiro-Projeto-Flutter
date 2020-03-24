@@ -25,10 +25,10 @@ class MyHomePage extends StatefulWidget {
   var items = new List<Item>();
   MyHomePage(){
     items = [];
-   // items.add(Item(title: "item 1", done: false));
-   // items.add(Item(title: "item 2", done: true));
-   // items.add(Item(title: "item 2", done: true));
-   // items.add(Item(title: "item 2", done: true));
+   items.add(Item(title: "Alcool em Gel", done: false));
+   items.add(Item(title: "Papel Higienico", done: true));
+   items.add(Item(title: "Arroz", done: true));
+   items.add(Item(title: "Feijão", done: true));
   }
 
   @override
@@ -89,12 +89,15 @@ save () async {
   await prefs.setString('data', jsonEncode(widget.items)); //setando e transformando em uma lista
 }
 
+
+
+
   @override
   Widget build(BuildContext context) { //renderizo acabo n fica em um for... pra atualizar
 
     return Scaffold( //pagina, esqueleto da pagina
       appBar: AppBar(
-        leading: Text("oi"), //canto esquerdo
+        //leading: Text("oi"), //canto esquerdo
         title: TextFormField(
           controller: newTaskCtrl,
           keyboardType: TextInputType.text,
@@ -102,14 +105,14 @@ save () async {
           fontSize: 24,
           ),
           decoration: InputDecoration(
-            labelText: "Nova Tarefa",
+            labelText: "Adicione novos itens",
             labelStyle: TextStyle(
               color: Colors.white
               ),
           ),
         ), //titulo do appbar
         actions: <Widget>[
-          Icon(Icons.plus_one), //adicionando um icone
+        //  Icon(Icons.plus_one), //adicionando um icone
         ],
       ), // adicionando appbar
       body: ListView.builder(
