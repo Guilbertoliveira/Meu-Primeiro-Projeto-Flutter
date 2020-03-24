@@ -88,9 +88,12 @@ void add(){  // função que adiciona novo objeto a lista
                 item.done = value; // mudando o checkbox
               });
             },
-            
-          ), 
-            key: Key(item.title),
+          ),
+          key: Key(item.title),
+          background: Container(
+            color: Colors.red.withOpacity(0.2)
+          ),
+          
           );
         },
       ),
